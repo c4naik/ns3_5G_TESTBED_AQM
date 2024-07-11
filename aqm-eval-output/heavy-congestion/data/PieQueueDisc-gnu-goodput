@@ -1,0 +1,8 @@
+set terminal png
+set output "aqm-eval-output/heavy-congestion/graph/PieQueueDisc-goodput.png"
+ set xlabel "Time (Seconds)" font "Verdana,12"
+set ylabel "Goodput (Mbps)" font "Verdana,12"
+set grid
+show grid
+set key font "Verdana,12"
+plot "aqm-eval-output/heavy-congestion/data/new-PieQueueDisc-goodput.dat" i 0 using 1:2 with lines smooth csplines title "Flow 1", "aqm-eval-output/heavy-congestion/data/new-PieQueueDisc-goodput.dat" i 1 using 1:2 with lines smooth csplines title "Flow 2", "aqm-eval-output/heavy-congestion/data/new-PieQueueDisc-goodput.dat" i 2 using 1:2 with lines smooth csplines title "Flow 3", "aqm-eval-output/heavy-congestion/data/new-PieQueueDisc-goodput.dat" i 3 using 1:2 with lines smooth csplines title "Flow 4", "aqm-eval-output/heavy-congestion/data/new-PieQueueDisc-goodput.dat" i 4 using 1:2 with lines smooth csplines title "Flow 5", "aqm-eval-output/heavy-congestion/data/new-PieQueueDisc-goodput.dat" i 5 using 1:2 with lines smooth csplines title "Flow 6", "aqm-eval-output/heavy-congestion/data/new-PieQueueDisc-goodput.dat" i 6 using 1:2 with lines smooth csplines title "Flow 7"

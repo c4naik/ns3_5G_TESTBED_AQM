@@ -177,7 +177,7 @@ FqPieQueueDisc::GetTypeId()
                           MakeUintegerChecker<uint32_t>())
             .AddAttribute("QueueDelayReference",
                           "Desired queue delay",
-                          TimeValue(Seconds(0.015)),
+                          TimeValue(Seconds(0.015)),//increase 
                           MakeTimeAccessor(&FqPieQueueDisc::m_qDelayRef),
                           MakeTimeChecker())
             .AddAttribute("MaxBurstAllowance",

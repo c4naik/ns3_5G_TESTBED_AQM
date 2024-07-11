@@ -86,7 +86,7 @@ class NoBackhaulEpcHelper : public EpcHelper
     Ipv4Address GetUeDefaultGatewayAddress() override;
     Ipv6Address GetUeDefaultGatewayAddress6() override;
     int64_t AssignStreams(int64_t stream) override;
-
+    NetDeviceContainer spdevices;
   protected:
     /**
      * \brief DoAddX2Interface: Call AddX2Interface on top of the Enb device pointers

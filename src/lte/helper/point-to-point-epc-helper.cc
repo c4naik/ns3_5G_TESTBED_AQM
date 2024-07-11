@@ -122,7 +122,9 @@ PointToPointEpcHelper::AddEnb(Ptr<Node> enb,
     p2ph.SetDeviceAttribute("DataRate", DataRateValue(m_s1uLinkDataRate));
     p2ph.SetDeviceAttribute("Mtu", UintegerValue(m_s1uLinkMtu));
     p2ph.SetChannelAttribute("Delay", TimeValue(m_s1uLinkDelay));
+    p2ph.SetQueue ("ns3::DropTailQueue", "MaxSize", StringValue ("200p"));
     NetDeviceContainer enbSgwDevices = p2ph.Install(enb, sgw);
+    EnbSgwDevices.Add(enbSgwDevices);
     NS_LOG_LOGIC("Ipv4 ifaces of the eNB after installing p2p dev: "
                  << enb->GetObject<Ipv4>()->GetNInterfaces());
 

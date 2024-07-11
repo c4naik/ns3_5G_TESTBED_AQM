@@ -1,0 +1,23 @@
+set terminal png size 600, 350
+set size .9, 1
+set output "aqm-eval-output/heavy-congestion/graph/qdel-goodput.png"
+ set xlabel "Queue Delay (ms)" font "Verdana"
+set ylabel "Goodput (Mbps)" font "Verdana"
+set xrange[] reverse
+set grid
+show grid
+set label "" at 129.78547218354967,0.8972930627715743 point lt 1 pt 1 center font "Verdana"  tc lt 1 offset 1.5,0.4
+set label "DropTail" at graph 1.03,0.96 point lt 1 pt 1 font "Verdana,12"  tc lt 1 offset 0.7, -0.2
+set label "" at 2.0240617119155333,0.9139072369501227 point lt 2 pt 2 center font "Verdana"  tc lt 2 offset 1.5,0.4
+set label "CoDel" at graph 1.03,0.8999999999999999 point lt 2 pt 2 font "Verdana,12"  tc lt 2 offset 0.7, -0.2
+set label "" at 7.5017419291901115,0.9036433223065804 point lt 3 pt 3 center font "Verdana"  tc lt 3 offset 1.5,0.4
+set label "PIE" at graph 1.03,0.84 point lt 3 pt 3 font "Verdana,12"  tc lt 3 offset 0.7, -0.2
+set label "" at 40.801672399575864,0.9077261458073218 point lt 4 pt 4 center font "Verdana"  tc lt 4 offset 1.5,0.4
+set label "RED" at graph 1.03,0.78 point lt 4 pt 4 font "Verdana,12"  tc lt 4 offset 0.7, -0.2
+set label "" at 26.692006493303893,0.9081935806257503 point lt 5 pt 5 center font "Verdana"  tc lt 5 offset 1.5,0.4
+set label "ARED" at graph 1.03,0.72 point lt 5 pt 5 font "Verdana,12"  tc lt 5 offset 0.7, -0.2
+set label "" at 37.317327576692435,0.9066360895229443 point lt 6 pt 6 center font "Verdana"  tc lt 6 offset 1.5,0.4
+set label "FRED" at graph 1.03,0.6599999999999999 point lt 6 pt 6 font "Verdana,12"  tc lt 6 offset 0.7, -0.2
+set label "" at 40.45763170696278,0.9079454452016888 point lt 7 pt 7 center font "Verdana"  tc lt 7 offset 1.5,0.4
+set label "NLRED" at graph 1.03,0.6 point lt 7 pt 7 font "Verdana,12"  tc lt 7 offset 0.7, -0.2
+plot "aqm-eval-output/heavy-congestion/data/PfifoFastQueueDisc-ellipse.dat" notitle with lines,"aqm-eval-output/heavy-congestion/data/CoDelQueueDisc-ellipse.dat" notitle with lines,"aqm-eval-output/heavy-congestion/data/PieQueueDisc-ellipse.dat" notitle with lines,"aqm-eval-output/heavy-congestion/data/RedQueueDisc-ellipse.dat" notitle with lines,"aqm-eval-output/heavy-congestion/data/AdaptiveRedQueueDisc-ellipse.dat" notitle with lines,"aqm-eval-output/heavy-congestion/data/FengAdaptiveRedQueueDisc-ellipse.dat" notitle with lines,"aqm-eval-output/heavy-congestion/data/NonLinearRedQueueDisc-ellipse.dat" notitle with lines

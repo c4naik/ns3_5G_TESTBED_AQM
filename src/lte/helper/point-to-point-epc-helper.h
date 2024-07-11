@@ -61,7 +61,7 @@ class PointToPointEpcHelper : public NoBackhaulEpcHelper
     void AddEnb(Ptr<Node> enbNode,
                 Ptr<NetDevice> lteEnbNetDevice,
                 std::vector<uint16_t> cellIds) override;
-
+    NetDeviceContainer EnbSgwDevices;
   private:
     /**
      * S1-U interfaces

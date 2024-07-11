@@ -51,8 +51,8 @@ NoBackhaulEpcHelper::NoBackhaulEpcHelper()
       m_s11LinkDelay(Seconds(0)),
       m_s11LinkMtu(3000),
       m_gtpcUdpPort(2123), // fixed by the standard
-      m_s5LinkDataRate(DataRate("10Gb/s")),
-      m_s5LinkDelay(Seconds(0)),
+      m_s5LinkDataRate(DataRate("10Mb/s")),
+      m_s5LinkDelay(Seconds(0.005)),
       m_s5LinkMtu(3000)
 {
     NS_LOG_FUNCTION(this);
@@ -123,7 +123,9 @@ NoBackhaulEpcHelper::NoBackhaulEpcHelper()
     p2ph.SetDeviceAttribute("DataRate", DataRateValue(m_s5LinkDataRate));
     p2ph.SetDeviceAttribute("Mtu", UintegerValue(m_s5LinkMtu));
     p2ph.SetChannelAttribute("Delay", TimeValue(m_s5LinkDelay));
+    p2ph.SetQueue ("ns3::DropTailQueue", "MaxSize", StringValue ("200p"));
     NetDeviceContainer pgwSgwDevices = p2ph.Install(m_pgw, m_sgw);
+    this->spdevices = pgwSgwDevices;
     NS_LOG_LOGIC("IPv4 ifaces of the PGW after installing p2p dev: "
                  << m_pgw->GetObject<Ipv4>()->GetNInterfaces());
     NS_LOG_LOGIC("IPv4 ifaces of the SGW after installing p2p dev: "
@@ -242,12 +244,12 @@ NoBackhaulEpcHelper::GetTypeId()
             .AddConstructor<NoBackhaulEpcHelper>()
             .AddAttribute("S5LinkDataRate",
                           "The data rate to be used for the next S5 link to be created",
-                          DataRateValue(DataRate("10Gb/s")),
+                          DataRateValue(DataRate("10Mb/s")),
                           MakeDataRateAccessor(&NoBackhaulEpcHelper::m_s5LinkDataRate),
                           MakeDataRateChecker())
             .AddAttribute("S5LinkDelay",
                           "The delay to be used for the next S5 link to be created",
-                          TimeValue(Seconds(0)),
+                          TimeValue(Seconds(0.005)),
                           MakeTimeAccessor(&NoBackhaulEpcHelper::m_s5LinkDelay),
                           MakeTimeChecker())
             .AddAttribute("S5LinkMtu",
