@@ -244,7 +244,7 @@ NoBackhaulEpcHelper::GetTypeId()
             .AddConstructor<NoBackhaulEpcHelper>()
             .AddAttribute("S5LinkDataRate",
                           "The data rate to be used for the next S5 link to be created",
-                          DataRateValue(DataRate("10Mb/s")),
+                          DataRateValue(DataRate("100Mb/s")),
                           MakeDataRateAccessor(&NoBackhaulEpcHelper::m_s5LinkDataRate),
                           MakeDataRateChecker())
             .AddAttribute("S5LinkDelay",
@@ -259,7 +259,7 @@ NoBackhaulEpcHelper::GetTypeId()
                           MakeUintegerChecker<uint16_t>())
             .AddAttribute("S11LinkDataRate",
                           "The data rate to be used for the next S11 link to be created",
-                          DataRateValue(DataRate("10Gb/s")),
+                          DataRateValue(DataRate("100Mb/s")),
                           MakeDataRateAccessor(&NoBackhaulEpcHelper::m_s11LinkDataRate),
                           MakeDataRateChecker())
             .AddAttribute("S11LinkDelay",
@@ -274,7 +274,7 @@ NoBackhaulEpcHelper::GetTypeId()
                           MakeUintegerChecker<uint16_t>())
             .AddAttribute("X2LinkDataRate",
                           "The data rate to be used for the next X2 link to be created",
-                          DataRateValue(DataRate("10Gb/s")),
+                          DataRateValue(DataRate("100Mb/s")),
                           MakeDataRateAccessor(&NoBackhaulEpcHelper::m_x2LinkDataRate),
                           MakeDataRateChecker())
             .AddAttribute("X2LinkDelay",
